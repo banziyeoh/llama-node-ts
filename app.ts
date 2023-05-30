@@ -25,52 +25,7 @@ const config: any = {
   nGpuLayers: 0,
 };
 
-const template = `How are you?`;
-// const prompt = `A chat between a user and an assistant.
-// USER: ${template}
-// ASSISTANT:`;
-
-const seedPrompt = [];
-const userPrompts: string[] = [];
-const assistantResponses: string[] = [];
-
 await llama.load(config);
-
-// const run = async () => {
-
-// }
-
-// let currentPrompt = ""
-// while (currentPrompt.toLowerCase() != "stop") {
-//     rl.question(`Prompt > `, (prompt: string) => {
-//     currentPrompt = prompt;
-//       userPrompts.push(prompt);
-//     });
-//     // //construct prompt
-//     // let prompt = "";
-// for (let i = 0; i < userPrompts.length; i++) {
-//   prompt += `USER: ${userPrompts[i]}\nASSISTANT: ${assistantResponses[i]}\n`;
-// }
-
-// //generate response
-// await llama.createCompletion(
-//   {
-//     nThreads: 4,
-//     nTokPredict: 2048,
-//     topK: 40,
-//     topP: 0.1,
-//     temp: 0.2,
-//     repeatPenalty: 1,
-//     prompt: prompt,
-//   },
-//   (response) => {
-//     process.stdout.write(response.token);
-//   }
-// );
-
-// }
-// rl.close();
-// //run();
 
 let more = 1;
 read();
@@ -86,15 +41,7 @@ async function read() {
     } else {
       more++;
       prompt += `USER: ${answer}\n`;
-      //userPrompts.push(answer);
 
-      //   for (let i = 0; i < userPrompts.length; i++) {
-      //     if (i == assistantResponses.length - 1) {
-      //       prompt += `USER: ${userPrompts[i]}\nASSISTANT: ${assistantResponses[i]}\n`;
-      //       break;
-      //     }
-      //     prompt += `USER: ${userPrompts[i]}\nASSISTANT: ${assistantResponses[i]}\n`;
-      //   }
       let assistantResponse = "";
       await llama.createCompletion(
         {
