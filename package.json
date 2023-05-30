@@ -1,0 +1,17 @@
+{
+	"dependencies": {
+		"@llama-node/core": "^0.1.5",
+		"@llama-node/llama-cpp": "^0.1.5",
+		"llama-node": "^0.1.5"
+	},
+	"devDependencies": {
+		"@types/node": "^20.2.5",
+		"typescript": "^5.0.4"
+	},
+	"scripts": {
+		"build": "tsc -p .",
+		"llama-cpp": "node js/app.js",
+		"test": "npm run build && node ./dist/index.js"
+	},
+	"type": "module"
+}
